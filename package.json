@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -11,14 +11,17 @@
     "build:prod": "ng build --prod",
     "lint:ts": "tslint -p src/tsconfig.app.json -c tslint.json 'src/**/*.ts'",
     "lint:scss": "stylelint --syntax scss 'src/**/*.scss' --fix",
-    "hmr": "ng serve --hmr -c hmr --disable-host-check"
+    "hmr": "ng serve --hmr -c hmr --disable-host-check",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.1.0",
     "@angular/cdk": "~12.1.2",
+    "@angular/cli": "~12.1.4",
     "@angular/common": "~12.1.0",
     "@angular/compiler": "~12.1.0",
+    "@angular/compiler-cli": "~12.1.0",
     "@angular/core": "~12.1.0",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~12.1.0",
@@ -34,15 +37,18 @@
     "@ngx-formly/material": "^5.10.22",
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
+    "express": "^4.17.1",
     "moment": "^2.29.1",
     "ng-matero": "^12.0.0",
     "ngx-permissions": "^8.1.1",
     "ngx-progressbar": "^6.1.1",
     "ngx-toastr": "^14.0.0",
+    "path": "^0.12.7",
     "photoviewer": "^3.5.8",
     "rxjs": "~6.6.0",
     "screenfull": "^5.1.0",
     "tslib": "^2.2.0",
+    "typescript": "~4.3.2",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -52,6 +58,7 @@
     "@angularclass/hmr": "^3.0.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
+    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -65,5 +72,9 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-scss": "^3.19.0",
     "typescript": "~4.3.2"
+  },
+  "engines": {
+    "node": "14.17.4",
+    "npm": "6.14.14"
   }
 }
